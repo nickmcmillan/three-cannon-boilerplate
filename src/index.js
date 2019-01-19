@@ -6,7 +6,6 @@ import initCannon, { updatePhysics, cannonDebugRenderer } from './cannon'
 import initThree, { camera, scene, renderer } from './three'
 import addItems from './addItems'
 import datgui, { settings } from './datgui'
-
 import updateDragPosition from './utils/updateDragPosition'
 
 
@@ -45,13 +44,10 @@ datgui()
 
 
 renderer.setAnimationLoop(function () {
-  // stats.begin()
   updatePhysics()
   update()
   render()
-  
   cannonDebugRenderer.update()
-  // stats.end()
 })
 
 

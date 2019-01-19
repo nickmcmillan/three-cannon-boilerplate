@@ -4,7 +4,7 @@ An ES6+ boilerplate to get started quickly with Three and Cannon.
 
 
 ### TODO: 
-- [ ] Texture example
+- [x] Texture example
 - [ ] Option for initial object rotation
 - [ ] Postprocessing example
 - [ ] Material friction example

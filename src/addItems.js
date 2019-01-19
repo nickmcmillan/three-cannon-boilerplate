@@ -1,14 +1,17 @@
 import delay from 'delay'
 
 // Adders
-import addBox from './add/addBox'
-import addSphere from './add/addSphere'
+import addItem from './add/addItem'
 import { addModel } from './add/addModel'
+
+import texturePng from './textures/uv_test_bw_1024.png'
 
 
 export default async function () {
 
-  addSphere({
+  addItem({
+    type: 'box',
+    textureSrc: texturePng,
     position: {
       x: 0,
       y: 5,
@@ -16,15 +19,19 @@ export default async function () {
     }
   })
   
-  addBox({
+  addItem({
+    type: 'sphere',
+    color: 'red',
+    textureSrc: texturePng,
     position: {
       x: 0,
       y: 2,
       z: 0
-    }
+    },
   })
 
-  addSphere({
+  addItem({
+    type: 'box',
     position: {
       x: 0,
       y: 20,
@@ -32,7 +39,7 @@ export default async function () {
     }
   })
 
-  // addBox({
+  // addItem({
   //   // color: 'yellow',//'#' + Math.floor(Math.random() * 16777215).toString(16)
   // })
 
