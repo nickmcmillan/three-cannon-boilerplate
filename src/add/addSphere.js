@@ -28,7 +28,7 @@ export default ({
   scene.add(mesh)
   
   // CANNON
-  const body = getCannonBody({ mesh, angularVelocity, linearDamping, angularVelocity, shape, mass, position, velocity })
+  const body = getCannonBody({ mesh, angularDamping, linearDamping, angularVelocity, shape, mass, position, velocity })
   bodies.push(body)
   world.add(body)
 }

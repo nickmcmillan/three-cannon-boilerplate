@@ -6,14 +6,14 @@ import { meshes, scene } from '../three'
 import { world, bodies } from '../cannon'
 
 export default ({
-  position = { x: 0, y: 5, z: 0 },
-  velocity = { x: 0, y: 10, z: 0 },
-  dimensions = { x: 1, y: 1, z: 1 },
+  position = { x: 0, y: 0, z: 0 },
+  velocity = { x: 0, y: 0, z: 0 },
+  dimensions = { x: 1, y: 2, z: 1 },
   mass = 1,
   angularDamping = 0.95,
   linearDamping = 0.01,
-  angularVelocity = { x: 0, y: 0, z: 0.5, },
-  color = 0x33ddee,
+  angularVelocity = { x: 0, y: 0, z: 0.5 },
+  color = 0xbad455,
   material = 'MeshPhongMaterial'
 }) => {
 
@@ -28,7 +28,7 @@ export default ({
 
 
   // CANNON
-  const body = getCannonBody({ mesh, angularVelocity, linearDamping, angularVelocity, shape, mass, position })
+  const body = getCannonBody({ mesh, angularDamping, linearDamping, angularVelocity, velocity, shape, mass, position })
   bodies.push(body)
   world.add(body)
 
