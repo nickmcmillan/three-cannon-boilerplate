@@ -8,8 +8,10 @@ import addItems from './addItems'
 import datgui, { settings } from './datgui'
 import updateDragPosition from './utils/updateDragPosition'
 
-
 import './index.css'
+
+const clock = new THREE.Clock()
+export const mixers = []
 
 
 // const clock = new Clock()
@@ -24,6 +26,8 @@ const render = function () {
   renderer.render(scene, camera)
   // composer.render(clock.getDelta())
   
+
+  
   
 }
 
@@ -34,6 +38,10 @@ const update = function () {
   camera.position.z = settings.radius * Math.cos(THREE.Math.degToRad(settings.theta))
   camera.lookAt(scene.position)
   updateDragPosition() // keeps the drag position updated even when the camera moves
+  
+  const delta = clock.getDelta()  
+  mixers.forEach((mixer) => mixer.update(delta))
+
 }
 
 

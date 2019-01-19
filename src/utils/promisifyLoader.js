@@ -1,8 +1,8 @@
-export const promisifyLoader = function (loader, onProgress) {
+export const promisifyLoader = function (loader, onProgress, onError) {
   function promiseLoader(url) {
 
     return new Promise((resolve, reject) => {
-      loader.load(url, resolve, onProgress, reject)
+      loader.load(url, resolve, onProgress, onError)
     })
   }
 
