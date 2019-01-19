@@ -3,12 +3,14 @@ import * as CANNON from 'cannon'
 import { meshes, scene } from '../three'
 import { world, bodies } from '../cannon'
 
+
 export default ({
   // Cannon docs: http://schteppe.github.io/cannon.js/docs/classes/Body.html
   // Defaults below;
   type,
   position = { x: 0, y: 5, z: 0 }, // start 5 meters above the ground
   velocity = { x: 0, y: 10, z: 0 }, // // with upwards velocity of 10
+  // rotation = { x: 0, y: 5, z: 0 },
   radius = 0.8,
   dimensions = { x: 1, y: 2, z: 1 },
   mass = 1,
@@ -18,6 +20,7 @@ export default ({
   color = 0x33ddee,
   material = 'MeshPhongMaterial',
   textureSrc, // a filepath to a texture image
+  flatShading = false,
 }) => {
 
   if (!type) throw 'Type not supplied'
@@ -45,14 +48,13 @@ export default ({
   }
 
   // THREE
-  const mat = new THREE[material]({ color, map: texture })
+  const mat = new THREE[material]({ color, map: texture, flatShading })
   const mesh = new THREE.Mesh(geo, mat)
   mesh.castShadow = true
   mesh.receiveShadow = true
   mesh.name = mesh.uuid
   meshes.push(mesh)
   scene.add(mesh)
-
 
   // CANNON
   const body = new CANNON.Body({ mass, angularDamping, linearDamping, angularVelocity, shape })
