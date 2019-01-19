@@ -36,9 +36,9 @@ export const meshes = [] // Three
 const initLights = function () {
   // Lights
   // directional light to cast shadow
-  const d = 20
+  const d = 30
   const lightDir = new THREE.DirectionalLight(0xffffff, 0.7) // color and brightness
-  lightDir.position.set(d / 2, d, d / 2) // default is 0, 1, 0 - which is shining directly from top
+  lightDir.position.set(-5, d, 15) // default is 0, 1, 0 - which is shining directly from top
   lightDir.castShadow = true
   lightDir.shadow.mapSize.width = 1024  // default is 512
   lightDir.shadow.mapSize.height = 1024  // default is 512
