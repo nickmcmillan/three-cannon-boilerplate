@@ -2,36 +2,47 @@ import delay from 'delay'
 
 // Adders
 import addItem from './add/addItem'
-import { addModel } from './add/addModel'
+import addModel from './add/addModel'
 
 import texturePng from './textures/uv_test_bw_1024.png'
+import pedal from './models/pedal.glb'
 
 
 export default async function () {
 
+  // addItem({
+  //   type: 'box',
+  //   textureSrc: texturePng,
+  //   position: {
+  //     x: 0,
+  //     y: 5,
+  //     z: 0
+  //   }
+  // })
+  
+  // addItem({
+  //   type: 'sphere',
+  //   color: 'red',
+  //   textureSrc: texturePng,
+  //   position: {
+  //     x: 0,
+  //     y: 2,
+  //     z: 0
+  //   },
+  // })
+
   addItem({
-    type: 'box',
-    textureSrc: texturePng,
+    type: 'sphere',
+    flatShading: true,
     position: {
       x: 0,
-      y: 5,
+      y: 20,
       z: 0
     }
   })
   
-  addItem({
-    type: 'sphere',
-    color: 'red',
-    textureSrc: texturePng,
-    position: {
-      x: 0,
-      y: 2,
-      z: 0
-    },
-  })
-
-  addItem({
-    type: 'box',
+  addModel({
+    modelSrc: pedal,
     position: {
       x: 0,
       y: 20,
