@@ -1,5 +1,7 @@
 ## Three + Cannon boilerplate
 
+https://threecannonboilerplate.netlify.com
+
 An ES6+ boilerplate to get started quickly with Three and Cannon.
 
 
