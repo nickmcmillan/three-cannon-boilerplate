@@ -10,7 +10,6 @@ THREE.Cache.enabled = true // so Three doesn't reload the gltf if used more than
 
 const vec3 = new THREE.Vector3()
 
-
 const onProgress = function (e) {
   // console.log(e)
 }
@@ -36,15 +35,12 @@ export default async ({
   
   // handle any asset which has built-in animation
   if (gltf.animations.length) {
-    const animation = gltf.animations[0]
-    console.log(animation)
-    
+    const animation = gltf.animations[0]    
     const mixer = new THREE.AnimationMixer(gltf.scene)
     mixers.push(mixer)
     const action = mixer.clipAction(animation)
     action.play()
   }
-  
   
   // each item within the mesh needs to cast and receive shadow,
   // and be assigned a name

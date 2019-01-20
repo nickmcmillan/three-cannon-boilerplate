@@ -10,11 +10,9 @@ import updateDragPosition from './utils/updateDragPosition'
 
 import './index.css'
 
-const clock = new THREE.Clock()
+
 export const mixers = []
 
-
-// const clock = new Clock()
 // const composer = new EffectComposer(renderer)
 // const effectPass = new EffectPass(camera, new SMAAEffect())
 // effectPass.renderToScreen = true
@@ -22,15 +20,10 @@ export const mixers = []
 // composer.addPass(effectPass)
 
 const render = function () {
-
   renderer.render(scene, camera)
   // composer.render(clock.getDelta())
-  
-
-  
-  
 }
-
+const clock = new THREE.Clock()
 const update = function () {
   if (settings.autoRotate) settings.theta += 0.06
   camera.position.x = settings.radius * Math.sin(THREE.Math.degToRad(settings.theta))
@@ -44,12 +37,10 @@ const update = function () {
 
 }
 
-
 initThree()
 initCannon()
 addItems()
 datgui()
-
 
 renderer.setAnimationLoop(function () {
   updatePhysics()
@@ -57,5 +48,3 @@ renderer.setAnimationLoop(function () {
   render()
   cannonDebugRenderer.update()
 })
-
-

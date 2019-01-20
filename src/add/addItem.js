@@ -3,7 +3,6 @@ import * as CANNON from 'cannon'
 import { meshes, scene } from '../three'
 import { world, bodies } from '../cannon'
 
-
 export default ({
   // Cannon docs: http://schteppe.github.io/cannon.js/docs/classes/Body.html
   // Defaults below;
@@ -21,6 +20,8 @@ export default ({
   material = 'MeshPhongMaterial',
   textureSrc, // a filepath to a texture image
   flatShading = false,
+  vertexShader,
+  fragmentShader
 }) => {
 
   if (!type) throw 'Type not supplied'
@@ -47,8 +48,32 @@ export default ({
     shape = new CANNON.Box(new CANNON.Vec3(x / 2, y / 2, z / 2))
   }
 
+  // TODO: not sure what to do about the shader stuff
+  // it probably shoudnt be in loop outside of the main renderer.setAnimationLoop
+  const uniforms = {
+    time: { value: 1.0 }
+  }
+
+  if (material === 'ShaderMaterial') {
+    const clock = new THREE.Clock();
+    const shaderLoop = () => {
+      const delta = clock.getDelta();
+      uniforms.time.value += delta * 2;
+      requestAnimationFrame(shaderLoop)
+    }
+    shaderLoop()
+  }
+
   // THREE
-  const mat = new THREE[material]({ color, map: texture, flatShading })
+  const mat = new THREE[material]({ 
+    color,
+    map: texture,
+    flatShading,
+    // for shader material
+    uniforms,
+    vertexShader,
+    fragmentShader,
+  })
   const mesh = new THREE.Mesh(geo, mat)
   mesh.castShadow = true
   mesh.receiveShadow = true
