@@ -9,7 +9,7 @@ export const addGround = function () {
   
   // THREE
   const geo = new THREE.PlaneGeometry(size, size)
-  const mat = new THREE.MeshLambertMaterial({ color: 'white' })
+  const mat = new THREE.MeshLambertMaterial({ color: 0xffffff })
   const mesh = new THREE.Mesh(geo, mat)
   mesh.quaternion.setFromAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI / 2)
   mesh.position.y = -0.01

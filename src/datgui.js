@@ -1,5 +1,5 @@
 import { GUI } from 'dat.gui'
-import initCannon, { updatePhysics, world } from './cannon'
+import { world } from './cannon'
 
 const gui = new GUI()
 

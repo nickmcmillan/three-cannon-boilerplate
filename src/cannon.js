@@ -18,11 +18,11 @@ export const updatePhysics = function () {
   bodies.forEach((body, i) => {
     const { x, y, z } = body.position
     // if the body falls below the ground
-    const outY = y < -10
+    const outY = y < -resetBoundary
     // if the body exceeds some made up boundaries
     const outX = x < -resetBoundary || x > resetBoundary
     const outZ = z < -resetBoundary || x > resetBoundary
-    // if so, reset its velocity & position
+    // if so, reset its velocity & position, with a bit of added random
     if (outY || outX || outZ) {
       body.velocity.set(Math.random(), Math.random(), Math.random())
       body.position.set(0, 34, 0)
