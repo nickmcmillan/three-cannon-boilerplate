@@ -1,6 +1,7 @@
 // Adders
 import addItem from './add/addItem'
 import addModel from './add/addModel'
+import addSphere from './add/addSphere'
 
 import texturePng from './textures/uv_test_bw_1024.png'
 import pedal from './models/pedal.glb'
