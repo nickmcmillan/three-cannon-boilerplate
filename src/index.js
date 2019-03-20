@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-// import { SMAAEffect, EffectComposer, EffectPass, RenderPass } from 'postprocessing'
+// import { OutlineEffect, EffectComposer, EffectPass, RenderPass } from 'postprocessing'
 
 import initCannon, { updatePhysics, cannonDebugRenderer } from './cannon'
 import initThree, { camera, scene, renderer } from './three'
@@ -13,9 +13,9 @@ import updateDragPosition from './utils/updateDragPosition'
 import './index.css'
 
 
-// const clock = new Clock()
+// const clock = new THREE.Clock()
 // const composer = new EffectComposer(renderer)
-// const effectPass = new EffectPass(camera, new SMAAEffect())
+// const effectPass = new EffectPass(camera, new OutlineEffect())
 // effectPass.renderToScreen = true
 // composer.addPass(new RenderPass(scene, camera))
 // composer.addPass(effectPass)
@@ -45,13 +45,11 @@ datgui()
 
 
 renderer.setAnimationLoop(function () {
-  // stats.begin()
   updatePhysics()
   update()
   render()
   
-  cannonDebugRenderer.update()
-  // stats.end()
+  // cannonDebugRenderer.update()
 })
 
 

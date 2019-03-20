@@ -8,23 +8,20 @@ import { addModel } from './add/addModel'
 
 export default async function () {
 
-  addSphere({ position: { x: 0, y: 10, z: 0 } })
-  addCube({
-  })
-  addSphere({
-    position: {
-      x: 0,
-      y: 20,
-      z: 0
-    }
-  })
+  for (let i = 0; i < 5; i++) {
+    addSphere({
+      position: {
+        x: Math.random() * 10,
+        y: Math.random() * 10,
+        z: Math.random() * 10,
+      },
+      radius: Math.random() * 3,
+    })
+    
+  }
 
   // addCube({
   //   // color: 'yellow',//'#' + Math.floor(Math.random() * 16777215).toString(16)
   // })
 
-  delay(500)
-
-
-  
 }

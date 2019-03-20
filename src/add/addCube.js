@@ -28,7 +28,7 @@ export default ({
 
 
   // CANNON
-  const body = getCannonBody({ mesh, angularVelocity, linearDamping, angularVelocity, shape, mass, position })
+  const body = getCannonBody({ mesh, angularVelocity, velocity, linearDamping, angularDamping, angularVelocity, shape, mass, position })
   bodies.push(body)
   world.add(body)
 
